@@ -1,0 +1,31 @@
+[versions]
+# Latest 8.x. AGP 9 reworks the KMP Android plugin, so that's a deliberate upgrade, not a bump.
+agp = "8.13.2"
+kotlin = "2.3.0"
+compose-multiplatform = "1.11.1"
+# Compose Multiplatform ships material3 on its own line, currently one minor behind the rest.
+compose-material3 = "1.9.0"
+
+androidx-activityCompose = "1.13.0"
+
+spotless = "7.0.2"
+
+compileSdk = "37"
+minSdk = "24"
+targetSdk = "36"
+
+[libraries]
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+
+compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose-multiplatform" }
+compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "compose-material3" }
+compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose-multiplatform" }
+compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "compose-multiplatform" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
